@@ -1,6 +1,7 @@
 # 📝 Linux系統自動化運維第十週筆記20220427
 # 📖 PROMETHEUS
 ## 🔖 設定
+![](pic/prometheus_introduce.jpg)
 ### 👉 第一步 : 修改虛擬機名稱
 * each machine needs to have 2 core CPU and 2GB memory.
 ```
@@ -92,16 +93,18 @@
 ### 👉 PROMETHEUS SERVER - 監控任務設定
 ```
 27 # gedit /opt/module/prometheus/prometheus.yml 
-    static_configs:
-      - targets: ["localhost:9090"]
+    scrape_configs:
+    - job_name: "prometheus"
+        static_configs:
+        - targets: ["localhost:9090"]
 
-  - job_name: "node_exporter1"
-    static_configs:
-      - targets: ["localhost:9100"]
+    - job_name: "node_exporter1"
+        static_configs:
+        - targets: ["192.168.56.108:9100"]
 
-  - job_name: "node_exporter2"
-    static_configs:
-      - targets: ["yichien1-2:9100","yichien1-3:9100"]
+    - job_name: "node_exporter2"
+        static_configs:
+        - targets: ["192.168.56.109:9100","192.168.56.110:9100"]
 28 # systemctl daemon-reload
 29 # systemctl restart prometheus.service
 ```
