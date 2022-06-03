@@ -1,4 +1,4 @@
-# 📝 Linux系統自動化運維第十四週筆記20220525
+# 📝 Linux系統自動化運維第十五週筆記20220525
 # 📖 ANSIBLE
 ## 🔖 ansible 的3個遠端模組的區別
 * command : ansible的預設模組，不指定-m引數的時候，使用的就是command模組 
