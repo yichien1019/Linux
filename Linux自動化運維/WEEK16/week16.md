@@ -86,13 +86,13 @@
 08 # gedit httpd.conf
     Listen 8080
 09 # gedit playbook.yml 
-    - hosts: server1
+- hosts: server1
     tasks:
-        - name: install httpd server
-        yum: name=httpd state=present
+    - name: install httpd server
+      yum: name=httpd state=present
 
-        - name: start httpd server
-        service: name=httpd state=started enabled=yes
+    - name: start httpd server
+      service: name=httpd state=started enabled=yes
 10 # ansible-playbook playbook.yml 
 
     PLAY [server1] *******************************************************************************************
@@ -108,9 +108,42 @@
 
     PLAY RECAP ***********************************************************************************************
     192.168.56.109             : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-
 ```
-### 👉 當操作了此任務會執行Notify的部分
+### 👉 修改 HTTPD 的 PORT 
+```
+11 # gedit httpd.conf
+    Listen 8081
+12 # gedit playbook.yml 
+    - hosts: server1
+      tasks:
+        - name: install httpd server
+          yum: name=httpd state=present
+
+        - name: configure httpd server
+          copy: src=./httpd.conf dest=/etc/httpd/conf/httpd.conf     //複製配置檔
+
+        - name: start httpd server
+          service: name=httpd state=restarted enabled=yes     //要restarted ，更改 port 才會生效 (或是 reloaded)
+13 # ansible-playbook playbook.yml 
+
+    PLAY [server1] *********************************************************************
+
+    TASK [Gathering Facts] *************************************************************
+    ok: [192.168.56.109]
+
+    TASK [install httpd server] ********************************************************
+    ok: [192.168.56.109]
+
+    TASK [configure httpd server] ******************************************************
+    changed: [192.168.56.109]
+
+    TASK [start httpd server] **********************************************************
+    ok: [192.168.56.109]
+
+    PLAY RECAP *************************************************************************
+    192.168.56.109             : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+```
+### 👉 當操作了此任務會執行Notify的部分 (`reload httpd server`)
 ```
 11 # gedit httpd.conf
     Listen 8082
@@ -118,18 +151,18 @@
     - hosts: server1
     tasks:
         - name: install httpd server
-        yum: name=httpd state=present
+          yum: name=httpd state=present
 
         - name: configure httpd server
-        copy: src=./httpd.conf dest=/etc/httpd/conf/httpd.conf
-        notify: reload httpd server
+          copy: src=./httpd.conf dest=/etc/httpd/conf/httpd.conf
+          notify: reload httpd server
 
         - name: start httpd server
-        service: name=httpd state=started enabled=yes
+          service: name=httpd state=started enabled=yes
 
     handlers:
         - name: reload httpd server
-        service: name=httpd state=reloaded
+          service: name=httpd state=reloaded
 13 # ansible-playbook playbook.yml 
 
     PLAY [server1] *****************************************************************************************
@@ -156,15 +189,15 @@
 ```
 14 # gedit playbookapp.yml 
     - hosts: server1
-    vars:
+      vars:
         - app1: httpd
         - app2: vsftpd
-    tasks:
+      tasks:
         - name: install {{ app1 }} and {{ app2 }}
-        yum:
+          yum:
             name:
-            - "{{ app1 }}"
-            - "{{ app2 }}"
+              - "{{ app1 }}"
+              - "{{ app2 }}"
             state: present
 15 # ansible-playbook playbookapp.yml 
 
@@ -181,23 +214,37 @@
 ```
 ## 🔖 PLAYBOOK 安裝 Vsftpd
 ```
-16 # gedit playbook.yml
+16 # cat vsftpd.conf 
+    anonymous_enable=No
+    local_enable=YES
+    write_enable=YES
+    local_umask=022
+    dirmessage_enable=YES
+    xferlog_enable=YES
+    connect_from_port_20=YES
+    xferlog_std_format=YES
+    listen=NO
+    listen_ipv6=YES
+    pam_service_name=vsftpd
+    userlist_enable=YES
+    tcp_wrappers=YES
+17 # gedit playbook.yml
     - hosts: server1
-    tasks:
+      tasks:
         - name: install vsftpd server
-        yum: name=vsftpd state=present
+          yum: name=vsftpd state=present
 
         - name: configure vsftpd
-        template: src=./vsftpd.conf dest=/etc/vsftpd/vsftpd.conf
-        notify: reload vsftpd
+          template: src=./vsftpd.conf dest=/etc/vsftpd/vsftpd.conf
+          notify: reload vsftpd
 
         - name: start vsftpd server
-        service: name=vsftpd state=started enabled=yes
+          service: name=vsftpd state=started enabled=yes
 
     handlers:
         - name: reload vsftpd
-        service: name=vsftpd state=reloaded
-17 # ansible-playbook playbook.yml 
+          service: name=vsftpd state=reloaded
+18 # ansible-playbook playbook.yml 
 
     PLAY [server1] *****************************************************************************************
 
@@ -218,28 +265,28 @@
 ```
 ### 👉 新增使用者 & 設定密碼
 ```
-18 # gedit playbook.yml
+19 # gedit playbook.yml
     - hosts: server1
-    tasks:
+      tasks:
         - name: install vsftpd server
-        yum: name=vsftpd state=present
+          yum: name=vsftpd state=present
 
         - name: add a new user "mary"
-        user:
+          user:
             name: mary
             password: "{{'mary'|password_hash('sha512')}}"
 
         - name: configure vsftpd
-        copy: src=./vsftpd.conf dest=/etc/vsftpd/vsftpd.conf
-        notify: reload vsftpd
+          copy: src=./vsftpd.conf dest=/etc/vsftpd/vsftpd.conf
+          notify: reload vsftpd
 
         - name: start vsftpd server
-        service: name=vsftpd state=started enabled=yes
+          service: name=vsftpd state=started enabled=yes
 
     handlers:
         - name: reload vsftpd
-        service: name=vsftpd state=reloaded
-19 # ansible-playbook playbook.yml 
+          service: name=vsftpd state=reloaded
+20 # ansible-playbook playbook.yml 
 
     PLAY [server1] *****************************************************************************************
 
@@ -262,12 +309,10 @@
     192.168.56.109             : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 ```
 
-#### 📍 
 
 ## 📖 補充資料
-https://chusiang.gitbooks.io/automate-with-ansible/content/15.how-to-use-handlers-in-playbooks.html
+* [現代 IT 人一定要知道的 Ansible 自動化組態技巧](https://chusiang.gitbooks.io/automate-with-ansible/content/15.how-to-use-handlers-in-playbooks.html)
+
+
+
 🖊️ editor : yi-chien Liu
-
-```
-
-```
