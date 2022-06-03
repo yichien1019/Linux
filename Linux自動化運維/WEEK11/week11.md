@@ -1,4 +1,4 @@
-# 📝 Linux系統自動化運維第十週筆記20220427
+# 📝 Linux系統自動化運維第十一週筆記20220427
 # 📖 PROMETHEUS
 ## 🔖 設定
 ![](pic/prometheus_introduce.jpg)
