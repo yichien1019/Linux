@@ -181,9 +181,7 @@
 ## 🔖 安裝步驟
 ```
 01 # yum install -y yum-utils
-02 # sudo yum-config-manager \
-    --add-repo \
-    https://download.docker.com/linux/centos/docker-ce.repo
+02 # sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 03 # sudo yum install docker-ce docker-ce-cli containerd.io
 ```
 ## 🔖 Image 映像檔常用指令

@@ -1,4 +1,4 @@
-# 📝 Linux系統自動化運維第十一週筆記2022504
+# 📝 Linux系統自動化運維第十一週筆記20220504
 # 📖 PROMETHEUS
 ## 🔖 GRAPH (http:// `IP` :9090/graph)
 * `up {job = "node_exporter2"}`
