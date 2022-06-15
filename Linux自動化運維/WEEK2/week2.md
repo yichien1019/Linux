@@ -37,14 +37,14 @@ RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
 </VirtualHost>
 ```
 
-
-[root@yichien0d /]# cd /var/www/html
-[root@yichien0d html]# mkdir .well-known/pki-validation/ -p
-[root@yichien0d html]# cd .well-known/pki-validation/
-[root@yichien0d pki-validation]# mv /home/user/06848ED219598073AFBCBEE8D69734DF.txt .
-[root@yichien0d pki-validation]# ls
-06848ED219598073AFBCBEE8D69734DF.txt
-
+```
+04 # cd /var/www/html
+05 # mkdir .well-known/pki-validation/ -p
+06 # cd .well-known/pki-validation/
+07 # mv /home/user/06848ED219598073AFBCBEE8D69734DF.txt .
+08 # ls
+    06848ED219598073AFBCBEE8D69734DF.txt
+```
 
 
 🖊️ editor : yi-chien Liu
