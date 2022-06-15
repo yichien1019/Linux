@@ -10,9 +10,9 @@
 | 第五週 | 20220316 | [WEEK5](WEEK5/week5.md) | <ul><li>Docker腳本<li>Docker 運行 Haproxy<li>awk 指令用法<ul> |
 | 第六週 | 20220323 | [WEEK6](WEEK6/week6.md) | <ul><li>RSYNC (遠端同步)<li>安裝 Rsyncd 遠端檔案同步伺服器<li>RSYNC + INOTIFY同步備份<ul> |
 | 第七週 | 20220330 | [WEEK7](WEEK7/week7.md) | <ul><li>JUMPSERVER<ul> |
-| 第八週 | 20220406 | 停課 |  |
+| 第八週 | 20220406 | 停課 | 停課 |
 | 第九週 | 20220413 | [WEEK9](WEEK9/week9.md) | <ul><li>JUMPSERVER + Google SMTP寄信<ul> |
-| 第十週 | 20220420 | 期中考 |  |
+| 第十週 | 20220420 | 期中考 | 期中考 |
 | 第十一週 | 20220427 | [WEEK11](WEEK11/week11.md) | <ul><li>PROMETHEUS<ul> |
 | 第十二週 | 20220504 | [WEEK12](WEEK12/week12.md) | <ul><li>PROMETHEUS<li>GRAFANA<li>PUSHGATEWAY<ul> |
 | 第十三週 | 20220511 | [WEEK13](WEEK13/week13.md) | <ul><li>PUSHGATEWAY 監控<li>指令解析<ul> |
