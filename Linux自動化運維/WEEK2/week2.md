@@ -2,15 +2,14 @@
 ## 📖 Let’s Encrypt 憑證
 ### 🔖 安裝步驟
 ```
-01 yum -y install epel-release mod_ssl certbot
+01 # yum -y install epel-release mod_ssl certbot
 ```
 ### 🔖 申請憑證
 ```
-02 certbot certonly --webroot -w /var/www/html -d yichien.dynv6.net --email yichien1019@gmail.com --agree-tos
+02 # certbot certonly --webroot -w /var/www/html -d yichien.dynv6.net --email yichien1019@gmail.com --agree-tos
 
-yum install python-certbot-apache
+03 # yum install python-certbot-apache
 ```
-
 
 ```
 <VirtualHost *:80>
@@ -46,7 +45,6 @@ RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
 [root@yichien0d pki-validation]# ls
 06848ED219598073AFBCBEE8D69734DF.txt
 
-#### 👉 
-##### 📍
+
 
 🖊️ editor : yi-chien Liu
