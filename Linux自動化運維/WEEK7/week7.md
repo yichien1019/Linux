@@ -69,7 +69,5 @@
 ![](pic/jumpserver_connect.png)
 ![](pic/jumpserver_command.png)
 
-## 📖 補充資料
-
 
 🖊️ editor : yi-chien Liu

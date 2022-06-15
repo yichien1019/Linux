@@ -1,5 +1,5 @@
 # 📝 Linux系統自動化運維第十七週筆記20220615
-## 📖 ANSIBLE
+# 📖 ANSIBLE
 ## 🔖 PLAYBOOK
 ### 👉 使用 YUM 模組進行安裝 & 額外定義
 ```

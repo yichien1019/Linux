@@ -145,7 +145,7 @@ root@dac47b581a97:/home#    (ctrl+p+q)
 ## 🔖 備份鏡像到docker hub
 ### 👉 在虛擬機上登入
 ```
-[root@yichien01 user]# docker login
+22 # docker login
     Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
     Username: yichien1019
     Password: 
@@ -157,34 +157,34 @@ root@dac47b581a97:/home#    (ctrl+p+q)
 ```
 ### 👉 上傳 `docker push`
 ```
-[root@yichien01 user]# docker tag 3c8 yichien1019/ubuntu:v1
-[root@yichien01 user]# docker push yichien1019/ubuntu:v1
-The push refers to repository [docker.io/yichien1019/ubuntu]
-39411f2c1913: Pushed 
-36ffdceb4c77: Mounted from library/ubuntu 
-v1: digest: sha256:f8862cb38970d36bec062c1453c44cea55371084a732b501174aa4fe43d4c777 size: 736
+23 # docker tag 3c8 yichien1019/ubuntu:v1
+24 # docker push yichien1019/ubuntu:v1
+    The push refers to repository [docker.io/yichien1019/ubuntu]
+    39411f2c1913: Pushed 
+    36ffdceb4c77: Mounted from library/ubuntu 
+    v1: digest: sha256:f8862cb38970d36bec062c1453c44cea55371084a732b501174aa4fe43d4c777 size: 736
 ```
 ### 👉 刪除 `docker rmi -f`
 ```
-[root@yichien01 user]# docker rmi -f 3c8
-Untagged: ubuntu:v1
-Untagged: yichien1019/ubuntu:v1
-Untagged: yichien1019/ubuntu@sha256:f8862cb38970d36bec062c1453c44cea55371084a732b501174aa4fe43d4c777
-Deleted: sha256:3c88a4a782a81324a138165a4eb63ded85142d16dc9a462e0bd66ae0125d3c6b
-Deleted: sha256:d6afe0149bf3659f642e6a7c5e5298f0e2814521dcdbad341f0e46a85ad1aaee
+25 # docker rmi -f 3c8
+    Untagged: ubuntu:v1
+    Untagged: yichien1019/ubuntu:v1
+    Untagged: yichien1019/ubuntu@sha256:f8862cb38970d36bec062c1453c44cea55371084a732b501174aa4fe43d4c777
+    Deleted: sha256:3c88a4a782a81324a138165a4eb63ded85142d16dc9a462e0bd66ae0125d3c6b
+    Deleted: sha256:d6afe0149bf3659f642e6a7c5e5298f0e2814521dcdbad341f0e46a85ad1aaee
 ```
 ### 👉 下載 `docker push`
 ```
-[root@yichien01 user]# docker push yichien1019/ubuntu:v1
-The push refers to repository [docker.io/yichien1019/ubuntu]
-An image does not exist locally with the tag: yichien1019/ubuntu
-[root@yichien01 user]# docker pull yichien1019/ubuntu:v1
-v1: Pulling from yichien1019/ubuntu
-08c01a0ec47e: Already exists 
-605c93f07e5f: Pull complete 
-Digest: sha256:f8862cb38970d36bec062c1453c44cea55371084a732b501174aa4fe43d4c777
-Status: Downloaded newer image for yichien1019/ubuntu:v1
-docker.io/yichien1019/ubuntu:v1
+26 # docker push yichien1019/ubuntu:v1
+    The push refers to repository [docker.io/yichien1019/ubuntu]
+    An image does not exist locally with the tag: yichien1019/ubuntu
+27 # docker pull yichien1019/ubuntu:v1
+    v1: Pulling from yichien1019/ubuntu
+    08c01a0ec47e: Already exists 
+    605c93f07e5f: Pull complete 
+    Digest: sha256:f8862cb38970d36bec062c1453c44cea55371084a732b501174aa4fe43d4c777
+    Status: Downloaded newer image for yichien1019/ubuntu:v1
+    docker.io/yichien1019/ubuntu:v1
 ```
 
 ## 📖 補充資料

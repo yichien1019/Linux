@@ -12,8 +12,6 @@ yum install python-certbot-apache
 ```
 
 
-
-
 ```
 <VirtualHost *:80>
 
@@ -48,9 +46,6 @@ RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
 [root@yichien0d pki-validation]# ls
 06848ED219598073AFBCBEE8D69734DF.txt
 
-
-
-yum install python-certbot-apache
 #### 👉 
 ##### 📍
 

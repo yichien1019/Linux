@@ -110,6 +110,7 @@
 ```
 * NODE-EXPORTER 連線
 ![](pic/node_exporter_connect.png)
+
 ## 📖 補充資料
 * [PROMETHEUS 安裝檔](https://prometheus.io/download/)
 * [Prometheus 學習配置](https://www.codeleading.com/article/10525895320/)

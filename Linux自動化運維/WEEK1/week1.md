@@ -10,17 +10,9 @@
 ### 👉 第二步:安裝 Apache 啟動 Web 服務器
 ```
 03 yum install httpd
-```
-#### 📍正則表達式
-```
-
-```
-
-```
 04 systemctl start httpd
 05 systemctl enable httpd
 ```
-
 ### 👉 第三步:設定 WebDAV
 1. 確認相關模組的安裝 `httpd -M | grep dav` 會得到
 ```
@@ -120,22 +112,8 @@
     ![](pic/ipv6-2.png)
 
 
-
-### 👉 
-#### 📍
-
-沒有-i  不會更新只會顯示在screen上
-'s(substitue取代)/find something/replace/' 
-'s(substitue取代)#find something#replace#'
-> `s/Options Indexes FollowSymLinks/Options FollowSymLinks/`
-
-sed -i 's/^/#&/g' /etc/httpd/conf.d/welcome.conf
-找到每一行的開頭，在最前面加入#
-
-
+## 📖 補充資料
 * [How to Setup a WebDAV Server Using Apache on CentOS 7](https://www.vultr.com/docs/how-to-setup-a-webdav-server-using-apache-on-centos-7/)
-
-
 
 
 

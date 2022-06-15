@@ -80,7 +80,7 @@
     uid=1100(kai) gid=1003(manager) groups=1003(manager)
 ```
 
-## 🔖 PLAYBOOK
+# 📖 PLAYBOOK
 ### 👉 安裝 httpd
 ```
 08 # gedit httpd.conf
