@@ -67,7 +67,7 @@ OS : "Ubuntu 20.04 LTS"
 ➜  shell cat line_notify_send.sh
 #!/bin/bash
 # LINE Notify Token - Media > "Send to".
-TOKEN=LgIRw5sXqQJQi9hyEPHP8342gF8qfUKpvOA1Dx5oOx0
+TOKEN=XXXXX
 
 ./basic.sh > basic.txt
 message=$(cat basic.txt)
@@ -87,10 +87,10 @@ curl -s -X POST -H "Authorization: Bearer $TOKEN" -F "message=$message" https://
 ➜  shell cat line_notify_send.sh
 #!/bin/bash
 # LINE Notify Token - Media > "Send to".
-TOKEN_line_notify=LgIRw5sXqQJQi9hyEPHP8342gF8qfUKpvOA1Dx5oOx0
+TOKEN_line_notify=XXXXX
 
-TOKEN_telegram=5455227751:AAFPVtYnoU48qI7ewt_ICA9KQsz35E6iBvI
-chat_ID=-669218974
+TOKEN_telegram=XXXXX
+chat_ID=XXXXX
 MODE='HTML'
 
 ./basic.sh > basic.txt
