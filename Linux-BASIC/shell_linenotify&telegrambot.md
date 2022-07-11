@@ -6,7 +6,7 @@
 #!/bin/bash
 
 getinip=$(ifconfig eth0 | grep netmask | awk '{print $2}')
-getexip=$(wget http://ipecho.net/plain -O - -q ; echo)
+getexip=$(curl -L icanhazip.com.)
 getcpu=$( cat /proc/cpuinfo | grep "cpu cores" | uniq | cut -d ':' -f 2)
 getmem=$(free -m | grep "Mem" | awk '{print $2}')
 user1=$(cat /etc/passwd | cut -d ":" -f 3)
@@ -110,7 +110,9 @@ curl -s -X POST $URL -d chat_id=${chat_ID}  -d parse_mode=${MODE} -d text="${mes
 > ![](pic/telegram_bot.jpg)
 
 
-
+### 補充
+` wget http://ipecho.net/plain -O - -q ; echo`
+> 如果你不想將下載的檔案儲存在本地，而只是想將其顯示在標準輸出（stdout）裡，可以使用 --output-document 選項，同時後面再跟上一個 - 號
 
 
 
