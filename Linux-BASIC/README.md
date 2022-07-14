@@ -6,3 +6,5 @@
 | [擷取命令](https://github.com/yichien1019/Linux/blob/main/Linux-BASIC/%E6%93%B7%E5%8F%96%E5%91%BD%E4%BB%A4.md) | 
 | [腳本結合 linenotify & telegrambot](https://github.com/yichien1019/Linux/blob/main/Linux-BASIC/shell_linenotify%26telegrambot.md) |  
 
+
+

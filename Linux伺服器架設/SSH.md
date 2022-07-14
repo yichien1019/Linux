@@ -56,3 +56,17 @@
     logout
     Connection to 192.168.56.103 closed.
 ```
+
+### 👉 關閉 SSH
+* 更改為 `no` 重新啟動
+```
+07 # vim /etc/ssh/sshd_config
+    PasswordAuthentication no
+```
+### 👉 關閉 ROOT 遠端登入
+* 更改為 `no` 重新啟動
+```
+08 # vim /etc/ssh/sshd_config
+    PermitRootLogin yes
+09 # systemctl restart sshd
+```
