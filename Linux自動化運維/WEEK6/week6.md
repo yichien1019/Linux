@@ -385,7 +385,7 @@ x | 代表檔案擴充屬性（extended attribute）有變動。
 ## 📖 補充資料
 * [CentOS 7.6 上安裝 Rsyncd 遠端檔案同步伺服器](https://blog.tomy168.com/2019/01/centos-76x64-rsync-daemon.html)
 * [Linux 使用 rsync 遠端檔案同步與備份工具教學與範例](https://blog.gtwang.org/linux/rsync-local-remote-file-synchronization-commands/)
-* [Linux运维：rsync+inotify实时同步](https://segmentfault.com/a/1190000018096553)
+* [Linux 运维：rsync+inotify实时同步](https://segmentfault.com/a/1190000018096553)
 
 
 🖊️ editor : yi-chien Liu
