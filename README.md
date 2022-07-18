@@ -1,4 +1,4 @@
-# Linux
+# Linux 學習筆記整理
 課程 | 筆記連結
 ---- | ----
 Linux 基礎 | [Linux 基礎](https://github.com/yichien1019/Linux/tree/main/Linux-BASIC)
