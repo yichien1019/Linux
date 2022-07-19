@@ -1,6 +1,7 @@
 # NGINX
 ## 安裝
 ### 設定 `.repo` 檔
+* Repo是由Android開發的命令行工具，對Git部分命令進行了封裝，將多個Git庫有效的進行組織
 ```
 01 # vim /etc/yum.repos.d/nginx.repo
     [nginx-stable]
