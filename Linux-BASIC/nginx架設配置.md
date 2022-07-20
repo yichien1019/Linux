@@ -147,15 +147,11 @@ upstream api {
   * IP-hash：依據 Client IP 來分配到不同台 Server，根據請求的目標 IP 地址，作為雜湊鍵（Hash Key）從靜態分配的散列表找出對應的伺服器
 
 
-
 ## 目錄
 * `/var/www/html`：實際的 Web 內容（默認情況下僅包含您之前看到的默認 Nginx 頁面）是從/var/www/html目錄中提供的。這可以通過更改Nginx配置文件來更改。
 * `/etc/nginx`：Nginx 配置目錄。所有 Nginx 配置文件都放在這底下。
 * `/etc/nginx/nginx.conf`：主要的 Nginx 配置文件。可以對此修改 Nginx 全局配置。
-* `/etc/nginx/sites-available/`：可以存儲每站點服務器塊的目錄。
-除非鏈接到此目錄，否則 Nginx 不會使用此目錄中的配置文件 sites-enabled。
-通常，所有服務器塊配置都在此目錄中完成，然後通過鏈接到其他目錄來啟用。
-* `/etc/nginx/sites-enabled/`：存儲已啟用的每站點服務器塊的目錄。
-是通過鏈接到 sites-available 目錄的配置文件來創建的。
+* `/etc/nginx/sites-available/`：可以存儲每站點服務器塊的目錄。除非鏈接到此目錄，否則 Nginx 不會使用此目錄中的配置文件 sites-enabled。通常，所有服務器配置都在此目錄中完成，然後通過鏈接到其他目錄來啟用。
+* `/etc/nginx/sites-enabled/`：存儲已啟用的每站點服務器塊的目錄。是通過鏈接到 sites-available 目錄的配置文件來創建的。
 * `/var/log/nginx/access.log`：Web 服務器的日誌文件。
 * `/var/log/nginx/error.log`：任何 Nginx 錯誤都記錄在此日誌中。
