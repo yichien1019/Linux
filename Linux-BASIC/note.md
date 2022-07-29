@@ -21,13 +21,13 @@ rsync
 port   80
 檔案位置預設   
 預設log位置   /var/log/nginx/access.log  main 格式可以自訂
-使用者?啟動服務   
+使用者啟動服務   
 include 引入設定檔
 servername
 location
 root
 
- cd /usr/share/nginx/html
+cd /usr/share/nginx/html
 
 log 
 nginx 重啟 停止 
@@ -35,3 +35,8 @@ restart reload 差別
     restart =停止+開始
     reload =保持運行+ re-read配置文件。
 反向 grep     grep -v 
+
+
+
+查安全組 新增規則:只有公司vpn ip 可以連線機器ssh port
+

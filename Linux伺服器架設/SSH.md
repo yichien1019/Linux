@@ -45,7 +45,7 @@
     Now try logging into the machine, with:   "ssh 'user@192.168.56.103'"
     and check to make sure that only the key(s) you wanted were added.
 ```
-
+* 手動 authorized_keys
 ### 👉 第三步 : 使用 SSH 登入
 ```
 05 # ssh user@192.168.56.103
@@ -57,7 +57,7 @@
     Connection to 192.168.56.103 closed.
 ```
 
-### 👉 關閉 SSH
+### 👉 關閉 SSH 的密碼登入
 * 更改為 `no` 重新啟動
 ```
 07 # vim /etc/ssh/sshd_config
