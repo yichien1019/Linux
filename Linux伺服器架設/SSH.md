@@ -63,7 +63,7 @@
 07 # vim /etc/ssh/sshd_config
     PasswordAuthentication no
 ```
-### 👉 關閉 ROOT 遠端登入
+### 👉 關閉 ROOT 的遠端登入
 * 更改為 `no` 重新啟動
 ```
 08 # vim /etc/ssh/sshd_config
