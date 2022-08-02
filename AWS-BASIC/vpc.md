@@ -1,6 +1,6 @@
 # Amazon VPC
 * Amazon Virtual Private Cloud (Amazon VPC) 可讓您將 AWS 資源啟動到您定義的虛擬網路。這個虛擬網路與您在資料中心中操作的傳統網路非常相似，且具備使用 AWS 可擴展基礎設施的優勢。
-## 步驟 1：了解預設 VPC
+### 步驟 1：了解預設 VPC
 若您是初次使用 Amazon VPC，請使用以下步驟檢視預設 VPC 的組態，包括其預設子網、主路由表和網際網路閘道。所有預設子網均使用主路由表，其具有網際網路閘道路由。這意味著您啟動至預設子網的資源可存取網際網路。
 檢視預設 VPC 的組態
 1. 在 https://console.aws.amazon.com/vpc/ 開啟 Amazon VPC 主控台。
@@ -9,7 +9,7 @@
 4. 在Routes (路由) 索引標籤上，有一個本機路由，允許 VPC 中的資源相互通訊，另一個路由則允許所有其他流量透過網際網路閘道連線網際網路。
 5. 在導覽窗格中，選擇 Subnets (子網)。對於預設 VPC，每個可用區域均有一個子網。對於這些預設子網，Default subnet (預設子網) 欄為 Yes (是)。如果選取每個子網，您可以檢視其 CIDR 區塊、路由表的路由，以及預設網路 ACL 規則等資訊。
 6. 在導覽窗格中，選擇 Internet gateways (網際網路閘道)。對於連接至預設 VPC 的網際網路閘道，VPC ID 欄顯示 VPC 的 ID，後跟名稱、default (預設值)。
-## 步驟 2：在您的 VPC 中啟動執行個體
+### 步驟 2：在您的 VPC 中啟動執行個體
 ![](pic/vpc-create-success.png)
 
 Amazon EC2 主控台針對您的執行個體組態提供預設值，這讓您能夠輕鬆且快速地開始使用。例如，在選擇 AWS 區域之後，我們會為該區域自動選擇預設 VPC。
@@ -27,12 +27,11 @@ Amazon EC2 主控台針對您的執行個體組態提供預設值，這讓您能
     
 9. 在 Summary (摘要) 面板中，選擇 Launch instance (啟動執行個體)。
 
-
-## 步驟 3：連線至公有子網中的 EC2 執行個體
+### 步驟 3：連線至公有子網中的 EC2 執行個體
 您的預設公有子網中的 EC2 執行個體可從網際網路存取。您可以從家用網路，使用 SSH 或遠端桌面以連線至執行個體。
 * 如需如何連線至公有子網中 Linux 執行個體的詳細資訊，請參閱《適用於 Linux 執行個體的 Amazon EC2 使用者指南》中的連線至您的 Linux 執行個體。
 * 如需如何連線至公有子網中 Windows 執行個體的詳細資訊，請參閱《適用於 Windows 執行個體的 Amazon EC2 使用者指南》中的連線至 Windows 執行個體。
-## 步驟 4：清理
+### 步驟 4：清理
 完成後，您可以終止該執行個體。執行個體狀態變更時刻起，該執行個體便會停止收取任何費用。在執行個體終止後，它仍會短暫顯示於主控台。
 請勿刪除預設 VPC。
 欲使用主控台來終止執行個體
@@ -42,4 +41,43 @@ Amazon EC2 主控台針對您的執行個體組態提供預設值，這讓您能
 4. 出現確認提示時，請選擇終止。
 
 
+
+## 手動建立 VPC
+### 第一部分 : VPC
+1. 選擇 "僅限VPC" ，設定IPv4， "建立VPC"
+2. 建立 "DNS主機名稱"
+3. 建立 "DNS解析"
+### 第二部分 : 子網路
+1. 選擇 "建立子網路"
+2. 選取 "VPC ID"
+3. 子網路設定，設定三個 private subnet，三個 public subnet
+4. 切割網段
+![](pic/subnet.png)
+### 第三部分 : 網際網路閘道
+1. 選擇 "建立網際網路閘道" 並命名
+2. 選擇動作 "連線至VPC"
+### 第四部份 : 路由表
+1. 選擇 "建立路由表"，建立 NAT-ROUTETABLE 和 ROUTETABLE 共兩個
+2. 選取對應此路由的 VPC
+3. "建立路由表"
+4. 編輯 "子網路關聯"，分別加入 subnet
+* NAT-ROUTETABLE 加入 private subnet
+![](pic/natroutetable-subnet.png)
+* ROUTETABLE 加入 public subnet
+![](pic/routetable-subnet.png)
+### 第五部分 : NAT 閘道
+1. 選擇 "建立 NAT 閘道" 並命名
+2. 選取 "子網路"，選擇 public subnet
+3. "配置彈性IP"
+4. "建立 NAT 閘道"
+### 第六部分 : 路由表設定
+1. NAT-ROUTETABLE - 路由加入 NAT
+![](pic/natroutetable.png)
+2. ROUTETABLE - 路由加入 IGW
+![](pic/routetable.png)
+
 * [開始使用 Amazon VPC](https://docs.aws.amazon.com/zh_tw/vpc/latest/userguide/vpc-getting-started.html)
+
+* [使用子網路](https://docs.aws.amazon.com/zh_tw/vpc/latest/userguide/working-with-subnets.html)
+
+* [區域 (Region) 和區域 (Zone)](https://docs.aws.amazon.com/zh_tw/AWSEC2/latest/UserGuide/using-regions-availability-zones.html?icmpid=docs_ec2_console#concepts-regions-availability-zones)
