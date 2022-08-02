@@ -75,6 +75,11 @@ Amazon EC2 主控台針對您的執行個體組態提供預設值，這讓您能
 ![](pic/natroutetable.png)
 2. ROUTETABLE - 路由加入 IGW
 ![](pic/routetable.png)
+### 第七部分 : 安全群組
+1. "編輯傳入規則" 並新增規則
+2. 加入 VPN 的 IPv4 網域 (ex. 192.169.0.0/24)，只開放內網連線，所以不需要設定 0.0.0.0
+![](pic/security.png)
+
 
 * [開始使用 Amazon VPC](https://docs.aws.amazon.com/zh_tw/vpc/latest/userguide/vpc-getting-started.html)
 
