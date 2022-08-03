@@ -45,3 +45,6 @@ terminated | 執行個體已永久刪除且無法啟動。
 ![](pic/natroutetable.png)
 * ROUTETABLE 
 ![](pic/routetable.png)
+
+### 補充 : 手動建立 EC2 (Windows Server)
+* 需要額外新增金鑰對並留存私有金鑰，以供連線時使用
